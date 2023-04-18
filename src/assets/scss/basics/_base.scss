@@ -15,6 +15,9 @@ body {
     "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: $clr-base-6;
+  color: $clr-base-1;
 }
 
 img {
@@ -36,9 +39,9 @@ p {
 a {
   text-decoration: none;
   color: inherit;
-  &:hover {
-    text-decoration: underline;
-  }
+  // &:hover {
+  //   text-decoration: underline;
+  // }
 }
 
 button {
@@ -73,4 +76,11 @@ input {
 
 ::-webkit-scrollbar-thumb:vertical:active {
   -webkit-border-radius: 100px;
+}
+
+button{
+  border: none;
+  &:hover{
+    cursor: pointer;
+  }
 }

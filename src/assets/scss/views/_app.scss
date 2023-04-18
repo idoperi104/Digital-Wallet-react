@@ -1,0 +1,9 @@
+.app{
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.main-app{
+    padding: 0 $app-padding $app-padding $app-padding;
+    height: calc(100vh - $header-height);
+}

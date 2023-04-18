@@ -11,18 +11,20 @@ import { AppHeader } from "./cmps/AppHeader";
 function App() {
   return (
     <Router>
-      <AppHeader />
+      <section className="app flex">
+        <AppHeader />
 
-      <main className="main-app">
-        <Switch>
-          <Route path="/contact/edit/:id?" component={ContactEdit} />
-          <Route path="/contact/:id" component={ContactDetails} />
-          <Route path="/statistic" component={Statistic} />
-          <Route path="/contact" component={ContactIndex} />
-          <Route path="/signup" component={LoginSignup} />
-          <Route path="/" component={Home} />
-        </Switch>
-      </main>
+        <main className="main-app">
+          <Switch>
+            <Route path="/contact/edit/:id?" component={ContactEdit} />
+            <Route path="/contact/:id" component={ContactDetails} />
+            <Route path="/statistic" component={Statistic} />
+            <Route path="/contact" component={ContactIndex} />
+            <Route path="/signup" component={LoginSignup} />
+            <Route path="/" component={Home} />
+          </Switch>
+        </main>
+      </section>
     </Router>
   );
 }

@@ -1,6 +1,72 @@
 .contact-preview{
-    height: 200px;
-    width: 220px;
-    margin: 1em;
-    border: 1px solid gray;
+    height: 100px;
+    width: 100%;
+    padding-inline-end: 1em;
+    margin-bottom: 1em;
+    border:  1px solid $clr-base-4;
+    border-radius: 1000px;
+
+
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 50px 50px;
+    grid-template-areas: 
+    "i ed r"
+    "i ed r";
+    align-items: center;
+
+    .info{
+        grid-area: i;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 100px 1fr 1fr;
+        grid-template-areas: 
+        "p n n"
+        "p e ph";
+        align-items: center;
+        .passport{
+            grid-area: p;
+            border: 1px solid $clr-base-4;
+            border-radius: 50%;
+            height: 80px;
+            width: 80px;
+            background-size:contain;
+            margin: 10px;
+        }
+    
+        .contact-name{
+            grid-area: n;
+        }
+    
+        .contact-phone{
+            grid-area: ph;
+        }
+    
+        .contact-email{
+            grid-area: e;
+        }
+    }
+
+
+    .edit{
+        grid-area: ed;
+        font-size: em(20px);
+        
+        &:hover{
+            font-size: em(24px);
+            
+        }
+    }
+    
+    .btn-remove{
+        font-size: em(20px);
+        background-color: $clr-base-5;
+        grid-area: r;
+        color: $clr-base-1;
+        &:hover{
+            font-size: em(24px);
+            
+        }
+    }
 }
+

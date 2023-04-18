@@ -15,7 +15,9 @@ class _ContactIndex extends Component {
     this.props.loadContacts();
   }
 
-  onRemoveContact = async (contactId) => {
+  onRemoveContact = async (ev, contactId) => {
+    console.log("ev: ", ev);
+    ev.stopPropagation()
     try {
       const res = await this.props.removeContact(contactId);
     } catch (error) {
@@ -25,7 +27,7 @@ class _ContactIndex extends Component {
 
   onChangeFilter = (filterBy) => {
     this.props.setFilterBy(filterBy);
-    this.props.loadRobots();
+    this.props.loadContacts();
   };
 
   render() {
@@ -34,11 +36,12 @@ class _ContactIndex extends Component {
 
     return (
       <section className="contact-index">
+        
+        <Link to="/contact/edit"><button className="btn-add">Add Contact</button></Link>
         <ContactFilter
           filterBy={filterBy}
           onChangeFilter={this.onChangeFilter}
         />
-        <Link to="/contact/edit">Add Contact</Link>
         <ContactList
           contacts={contacts}
           onRemoveContact={this.onRemoveContact}

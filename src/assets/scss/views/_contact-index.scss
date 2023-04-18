@@ -1,0 +1,25 @@
+.contact-index {
+  background-color: $clr-base-5;
+  height: 100%;
+  padding: 1.5em;
+  border-radius: 1.5em;
+}
+
+.btn-add {
+  height: rem(32px);
+  background-color: $clr-base-2;
+  color: $clr-base-7;
+  padding: em(4px) em(12px);
+  border-radius: rem(16px);
+  margin-bottom: 1em;
+  font-size: 16px;
+}
+
+.contact-filter {
+  margin-bottom: em(16px);
+  gap: em(48px);
+
+  section {
+    gap: em(8px);
+  }
+}

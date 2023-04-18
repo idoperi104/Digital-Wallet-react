@@ -36,7 +36,7 @@ class _Home extends Component {
     return loggedInUser ? (
       <section className="home">
         <h1>Hello {`${loggedInUser.username}`}!</h1>
-        <pre>{JSON.stringify(loggedInUser)}</pre>
+        {/* <pre>{JSON.stringify(loggedInUser)}</pre> */}
         <h2>current Bitcoin Rate: {`${rate}`}</h2>
         <MovesList title={'Your last 3 moves:'} moves={this.movesToShow}/>
       </section>

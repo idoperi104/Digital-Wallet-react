@@ -1,0 +1,89 @@
+.contact-details {
+  margin-block-start: 3em;
+  gap: 1em;
+  height: calc(100% - 3em);
+  position: relative;
+
+  .btn-back {
+    position: absolute;
+    top: rem(-48px);
+    height: rem(30px);
+    width: rem(80px);
+    background-color: $clr-base-5;
+    border-radius: 1.5em;
+    color: $clr-base-1;
+  }
+
+  .details-info {
+    flex-grow: 1;
+    background-color: $clr-base-5;
+    height: 100%;
+    padding: 1.5em;
+    border-radius: 1.5em;
+    text-align: center;
+    position: relative;
+
+    h2 {
+      font-weight: 800;
+      margin-bottom: 2rem;
+    }
+    h3 {
+      text-align: start;
+      margin-bottom: 0.5rem;
+    }
+
+    img {
+      background-color: $clr-base-2;
+      border-radius: 50%;
+      border: 1px solid $clr-base-3;
+      height: rem(100px);
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+    }
+  }
+
+  .transfer-info {
+    width: rem(300px);
+    background-color: $clr-base-2;
+    color: $clr-base-7;
+    height: 100%;
+    padding: 1.5em;
+    border-radius: 1.5em;
+
+    h2 {
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .transfer-fund {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      margin-bottom: 2em;
+
+      h3 {
+        font-size: rem(16px);
+      }
+
+      input {
+        height: 3rem;
+        padding: 1rem;
+        border-radius: 6px;
+        border: 1px solid $clr-base-3;
+        background-color: transparent;
+
+        &:focus-visible {
+          outline: none;
+        }
+      }
+
+      .btn-transfer {
+        height: 3rem;
+        color: $clr-base-1;
+        background-color: $clr-base-7;
+        border-radius: 1000px;
+      }
+    }
+  }
+}

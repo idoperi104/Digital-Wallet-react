@@ -4,6 +4,8 @@ import TransferFund from "../cmps/TransferFund";
 import MovesList from "../cmps/MovesList";
 import { connect } from "react-redux";
 import { transferCoins } from "../store/actions/user.actions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 export class _ContactDetails extends Component {
   state = {
@@ -40,9 +42,9 @@ export class _ContactDetails extends Component {
   };
 
   get filterMoves() {
-    const { contact } = this.state
-    const { loggedInUser } = this.props
-    return loggedInUser.moves.filter((move) => move.toId === contact._id)
+    const { contact } = this.state;
+    const { loggedInUser } = this.props;
+    return loggedInUser.moves.filter((move) => move.toId === contact._id);
   }
 
   render() {
@@ -51,30 +53,28 @@ export class _ContactDetails extends Component {
     if (!contact) return <div>Loading...</div>;
     // if (!loggedInUser) return <div>Please Log in...</div>;
     return (
-      <section className="contact-details">
-        <section>
-          <h3>name: {contact.name}</h3>
+      <section className="contact-details flex">
+        <button className="btn-back" onClick={this.onBack}>
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </button>
+        <section className="details-info">
+          <h2>{contact.name}</h2>
+          <h3>Email: {contact.email}</h3>
+          <h3>Phone number: {contact.phone}</h3>
+          <img src={`https://robohash.org/${contact._id}`} />
         </section>
-        <section>
-          <h3>email: {contact.email}</h3>
-        </section>
-        <section>
-          <h3>phone: {contact.phone}</h3>
-        </section>
-        <img src={`https://robohash.org/${contact._id}`} />
 
         {loggedInUser && (
-          <>
+          <section className="transfer-info">
+            <h2>Make a Transfer</h2>
             <TransferFund
               contact={contact}
               maxCoins={loggedInUser.coins}
               onTransferCoins={this.onTransferCoins}
             />
-            <MovesList title={'Your Moves:'} moves={this.filterMoves} />
-          </>
+            <MovesList title={"Your Moves:"} moves={this.filterMoves} />
+          </section>
         )}
-        {!loggedInUser && <div>loading...</div>}
-        <button onClick={this.onBack}>Back</button>
       </section>
     );
   }

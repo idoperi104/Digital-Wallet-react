@@ -13,7 +13,12 @@
 
 // Views
 @import "views/contact-index";
+@import "views/contact-details";
+@import "views/home";
+@import "views/app";
 
 // Components
-@import "cmps/contact-preview";
 @import "cmps/app-header";
+@import "cmps/contact-list";
+@import "cmps/contact-preview";
+@import "cmps/move-list";

@@ -3,8 +3,8 @@ import { Link, NavLink, withRouter } from "react-router-dom";
 export function AppHeader() {
   return (
     <header className="app-header header">
-      <h1>Mr Coin</h1>
-      <nav>
+      <h1 className="logo">Wallet</h1>
+      <nav className="main-nav flex align-center">
         <NavLink exact to="/">
           Home
         </NavLink>
