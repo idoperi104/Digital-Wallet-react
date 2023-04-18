@@ -1,10 +1,12 @@
 import { Sparklines, SparklinesLine, SparklinesSpots } from "react-sparklines";
 
-export function Chart({ data }) {
+export function Chart({ title = "", data }) {
   return (
-    
-    <Sparklines data={data} >
-      <SparklinesLine color="red"/>
-    </Sparklines>
+    <section className="chart">
+      <h2>{title}</h2>
+      <Sparklines data={data}>
+        <SparklinesLine color="#e1e16c" />
+      </Sparklines>
+    </section>
   );
 }

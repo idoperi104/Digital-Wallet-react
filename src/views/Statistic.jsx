@@ -25,9 +25,7 @@ export class Statistic extends Component {
     if (!marketPrice) return <div>loading...</div>;
     return (
       <div>
-        <h1>statistic</h1>
-        {/* <h2>current Bitcoin Rate: {`${marketPrice}`}</h2> */}
-        <Chart data={marketPrice} />
+        <Chart title="Market Price:" data={marketPrice} />
       </div>
     );
   }
