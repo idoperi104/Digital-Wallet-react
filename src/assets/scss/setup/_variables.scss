@@ -1,0 +1,52 @@
+// Colors
+$clr1: #e01e5a;
+$clr2: #293241;
+$clr3: #5c3fc5;
+$clr4: #696969;
+$clr5: #e6e9ec;
+
+$clr-base-1: #ffffff;
+$white-color: #ffffff;
+$gray-color: #a6a6a6;
+
+// Primary Colors
+$primary-color: #2196F3;
+$primary-dark-color: #1565C0;
+$primary-light-color: #BBDEFB;
+
+// Secondary Colors
+$secondary-color: #FF9800;
+$secondary-dark-color: #F57C00;
+$secondary-light-color: #FFCC80;
+
+// Neutral Colors
+$neutral-color: #E0E0E0;
+$neutral-dark-color: #757575;
+$neutral-light-color: #F5F5F5;
+
+// Usage example
+.header {
+  background-color: $primary-color;
+  color: $neutral-light-color;
+}
+
+.button {
+  background-color: $secondary-color;
+  color: $neutral-light-color;
+}
+
+.text {
+  color: $neutral-dark-color;
+}
+
+
+
+
+
+$navHeight: 65px;
+
+// Breakpoints
+$mobile-breakpoint: 600px;
+$tablet-breakpoint: 768px;
+$normal-breakpoint: 900px;
+$wide-breakpoint: 1080px;
