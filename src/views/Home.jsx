@@ -34,6 +34,12 @@ class _Home extends Component {
     const { loggedInUser } = this.props;
     return (
       <section className="home">
+        {loggedInUser && (
+          <section className="user-info">
+            <h3>Hello {`${loggedInUser.username}`}!</h3>
+            <MovesList title={"Your last 3 moves:"} moves={this.movesToShow} />
+          </section>
+        )}
         <section className="hero">
           <h2>
             Get easy access to your crypto assets with <span>WALLET</span>
@@ -51,13 +57,6 @@ class _Home extends Component {
         <section className="bitcoin-rate">
           <h3>current Bitcoin Rate: {`${rate}`}</h3>
         </section>
-
-        {loggedInUser && (
-          <section className="user-info">
-            <h3>Hello {`${loggedInUser.username}`}!</h3>
-            <MovesList title={"Your last 3 moves:"} moves={this.movesToShow} />
-          </section>
-        )}
       </section>
     );
   }

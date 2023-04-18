@@ -53,18 +53,7 @@ class _LoginSignup extends Component {
     const {loginCred, signupCred} = this.state
     return (
       <section className="login-signup">
-        <h2>log in</h2>
-        <form onSubmit={this.onLogin}>
-          <input
-            value={loginCred.username}
-            onChange={this.handleChange}
-            type="text"
-            name="loginCred"
-            id="loginCred"
-          />
-          <button>log in</button>
-        </form>
-        <h2>sign up</h2>
+        <h2>Sign up:</h2>
         <form onSubmit={this.onSignup}>
           <input
             value={signupCred.username}
@@ -74,6 +63,17 @@ class _LoginSignup extends Component {
             id="signupCred"
           />
           <button>sign up</button>
+        </form>
+        <h2>Log in:</h2>
+        <form onSubmit={this.onLogin}>
+          <input
+            value={loginCred.username}
+            onChange={this.handleChange}
+            type="text"
+            name="loginCred"
+            id="loginCred"
+          />
+          <button>log in</button>
         </form>
       </section>
     );
