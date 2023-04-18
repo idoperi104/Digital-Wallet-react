@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/Digital-Wallet-react/static/css/main.c7bfcaba.css",
-    "main.js": "/Digital-Wallet-react/static/js/main.ea6bde02.js",
+    "main.css": "/Digital-Wallet-react/static/css/main.34b93199.css",
+    "main.js": "/Digital-Wallet-react/static/js/main.c27767c4.js",
     "static/js/787.3a291bd3.chunk.js": "/Digital-Wallet-react/static/js/787.3a291bd3.chunk.js",
+    "static/media/bitcoin.png": "/Digital-Wallet-react/static/media/bitcoin.24f409ba4db8dca08cec.png",
     "index.html": "/Digital-Wallet-react/index.html",
-    "main.c7bfcaba.css.map": "/Digital-Wallet-react/static/css/main.c7bfcaba.css.map",
-    "main.ea6bde02.js.map": "/Digital-Wallet-react/static/js/main.ea6bde02.js.map",
+    "main.34b93199.css.map": "/Digital-Wallet-react/static/css/main.34b93199.css.map",
+    "main.c27767c4.js.map": "/Digital-Wallet-react/static/js/main.c27767c4.js.map",
     "787.3a291bd3.chunk.js.map": "/Digital-Wallet-react/static/js/787.3a291bd3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c7bfcaba.css",
-    "static/js/main.ea6bde02.js"
+    "static/css/main.34b93199.css",
+    "static/js/main.c27767c4.js"
   ]
 }
