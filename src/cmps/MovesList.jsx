@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function MovesList({ title, moves }) {
+export function MovesList({ title, moves }) {
   console.log("moves", moves);
   return (
     <section className="move-list">

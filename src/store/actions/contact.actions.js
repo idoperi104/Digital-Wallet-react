@@ -29,7 +29,7 @@ export function removeContact(contactId) {
     }
 }
 
-export function setFilterBy(filterBy) {
+export function setFilterBy(filterBy) {    
     return (dispatch) => {
         dispatch({ type: SET_FILTER_BY, filterBy })
     }

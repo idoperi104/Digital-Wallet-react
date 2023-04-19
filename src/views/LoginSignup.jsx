@@ -1,38 +1,35 @@
-import React from "react";
-import { Component } from "react";
-import { connect } from 'react-redux'
-import { loadLoggedInUser, login, signup } from '../store/actions/user.actions'
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login, signup } from "../store/actions/user.actions";
 
-class _LoginSignup extends Component {
-  state = {
-    loginCred: {username: ''},
-    signupCred: {username: ''},
-  };
+export function LoginSignup(props) {
+  const [loginCred, setLoginCred] = useState({ username: "" });
+  const [signupCred, setSignupCred] = useState({ username: "" });
 
-  onLogin = async (ev) => {
+  const dispatch = useDispatch();
+
+  async function onLogin(ev) {
     ev.preventDefault();
     try {
-      await this.props.login(this.state.loginCred);
-      this.props.history.push("/");
+      dispatch(login(loginCred));
+      props.history.push("/");
     } catch (error) {
       console.log("error:", error);
     }
-  };
+  }
 
-  onSignup = async (ev) => {
-    console.log("ev: ", ev);
+  async function onSignup(ev) {
     ev.preventDefault();
     try {
-      await this.props.signup(this.state.signupCred);
-      this.props.history.push("/");
+      dispatch(signup(signupCred));
+      props.history.push("/");
     } catch (error) {
       console.log("error:", error);
     }
-  };
+  }
 
-  handleChange = ({ target }) => {
+  function handleChange({ target }) {
     const field = target.name;
-    console.log("field: ", field);
     let value = target.value;
 
     switch (target.type) {
@@ -44,55 +41,35 @@ class _LoginSignup extends Component {
         value = target.checked;
         break;
     }
-    this.setState((state) => {
-        return {...state, [field]: {username:value}}
-    });
-  };
 
-  render() {
-    const {loginCred, signupCred} = this.state
-    return (
-      <section className="login-signup">
-        <h2>Sign up:</h2>
-        <form onSubmit={this.onSignup}>
-          <input
-            value={signupCred.username}
-            onChange={this.handleChange}
-            type="text"
-            name="signupCred"
-            id="signupCred"
-          />
-          <button>sign up</button>
-        </form>
-        <h2>Log in:</h2>
-        <form onSubmit={this.onLogin}>
-          <input
-            value={loginCred.username}
-            onChange={this.handleChange}
-            type="text"
-            name="loginCred"
-            id="loginCred"
-          />
-          <button>log in</button>
-        </form>
-      </section>
-    );
+    if (field === "loginCred") setLoginCred({ username: value });
+    if (field === "signupCred") setSignupCred({ username: value });
   }
+
+  return (
+    <section className="login-signup">
+      <h2>Sign up:</h2>
+      <form onSubmit={onSignup}>
+        <input
+          value={signupCred.username}
+          onChange={handleChange}
+          type="text"
+          name="signupCred"
+          id="signupCred"
+        />
+        <button>sign up</button>
+      </form>
+      <h2>Log in:</h2>
+      <form onSubmit={onLogin}>
+        <input
+          value={loginCred.username}
+          onChange={handleChange}
+          type="text"
+          name="loginCred"
+          id="loginCred"
+        />
+        <button>log in</button>
+      </form>
+    </section>
+  );
 }
-
-
-const mapStateToProps = (state) => ({
-  loggedInUser: state.userModule.loggedInUser
-});
-
-const mapDispatchToProps = {
-  loadLoggedInUser,
-  login,
-  signup
-};
-
-export const LoginSignup = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(_LoginSignup);
-

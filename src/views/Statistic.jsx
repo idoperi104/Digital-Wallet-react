@@ -1,32 +1,28 @@
-import { Component } from "react";
+import { Component, useEffect, useState } from "react";
 import { bitcoinService } from "../services/bitcoin.service";
 import { Chart } from "../cmps/Chart";
 
-export class Statistic extends Component {
-  state = {
-    marketPrice: null,
-  };
+export function Statistic(props) {
+  const [marketPrice, setMarketPrice] = useState()
 
-  componentDidMount() {
-    this.getMarketPrice();
-  }
+  useEffect(() => {
+    getMarketPrice()
+  }, [])
+  
 
-  getMarketPrice = async () => {
+  async function getMarketPrice () {
     try {
       const marketPrice = await bitcoinService.getMarketPrice();
-      this.setState({ marketPrice });
+      setMarketPrice( marketPrice );
     } catch (error) {
       console.log("error:", error);
     }
   };
 
-  render() {
-    const { marketPrice } = this.state;
     if (!marketPrice) return <div>loading...</div>;
     return (
       <div>
         <Chart title="Market Price:" data={marketPrice} />
       </div>
     );
-  }
 }

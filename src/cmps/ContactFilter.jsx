@@ -1,16 +1,13 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 
-export class ContactFilter extends Component {
-  state = {
-    filterBy: null,
-  };
+export function ContactFilter(props) {
+  const [filterBy, setFilterBy] = useState({ ...props.filterBy });
 
-  componentDidMount() {
-    this.setState({ filterBy: { ...this.props.filterBy } });
-  }
+  useEffect(() => {
+    props.onChangeFilter(filterBy);
+  }, [filterBy]);
 
-  handleChange = ({ target }) => {
-    console.log("target: ", target);
+  function handleChange({ target }) {
     const field = target.name;
     let value = target.value;
 
@@ -25,38 +22,33 @@ export class ContactFilter extends Component {
       default:
         break;
     }
-    this.setState(
-      ({ filterBy }) => ({ filterBy: { ...filterBy, [field]: value } }),
-      () => this.props.onChangeFilter(this.state.filterBy)
-    );
-  };
-
-  render() {
-    if (!this.state.filterBy) return <div>Loading...</div>;
-    const { name, phone } = this.state.filterBy;
-    return (
-      <form className="contact-filter flex align-center">
-        <section className="flex align-center">
-          <label htmlFor="name">Name:</label>
-          <input
-            onChange={this.handleChange}
-            value={name}
-            type="text"
-            name="name"
-            id="name"
-          />
-        </section>
-        <section className="flex align-center">
-          <label htmlFor="phone">Phone:</label>
-          <input
-            onChange={this.handleChange}
-            value={phone}
-            type="text"
-            name="phone"
-            id="phone"
-          />
-        </section>
-      </form>
-    );
+    setFilterBy({ ...filterBy, [field]: value });
   }
+
+  if (!filterBy) return <div>Loading...</div>;
+  const { name, phone } = filterBy;
+  return (
+    <form className="contact-filter flex align-center">
+      <section className="flex align-center">
+        <label htmlFor="name">Name:</label>
+        <input
+          onChange={handleChange}
+          value={name}
+          type="text"
+          name="name"
+          id="name"
+        />
+      </section>
+      <section className="flex align-center">
+        <label htmlFor="phone">Phone:</label>
+        <input
+          onChange={handleChange}
+          value={phone}
+          type="text"
+          name="phone"
+          id="phone"
+        />
+      </section>
+    </form>
+  );
 }

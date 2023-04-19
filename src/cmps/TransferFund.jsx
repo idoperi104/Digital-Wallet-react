@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-export default function TransferFund({ contact, maxCoins, onTransferCoins }) {
+export function TransferFund({ contact, maxCoins, onTransferCoins }) {
   const [amount, setAmount] = useState(0);
 
   function onSetAmount({ target }) {
